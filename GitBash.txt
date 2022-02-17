@@ -3,7 +3,7 @@
 3) Зайти в папку - cd foldername
 4) Создать 3 папки - mkdir foldername1 foldername2 foldername3
 5) Зайти в любоую папку - cd foldername2
-6) Создать 5 файлов (3 txt, 2 json) - mkdir txt1.txt txt2.txt txt3.txt ls -json1.json json2.json
+6) Создать 5 файлов (3 txt, 2 json) - touch txt1.txt txt2.txt txt3.txt json1.json json2.json
 7) Создать 3 папки - mkdir foldername4 foldername5 foldername6
 8. Вывести список содержимого папки - ls -la
 9) + Открыть любой txt файл - vim txt1.txt
@@ -11,17 +11,43 @@
 11) + сохранить и выйти. - Esc — :wq — enter
 12) Выйти из папки на уровень выше - cd .. , cd ../..(если на 2 уровня выше)
 —
-13) переместить любые 2 файла, которые вы создали, в любую другую папку. - mv foldername2/{json1.json,json2.json} foldername1/    и  mv foldername2/*.txt foldername1/ (* - переместит все файлы .txt в указанную папку)
-14) скопировать любые 2 файла, которые вы создали, в любую другую папку. -  cp foldername2/{json1.json,json2.json} foldername1/   и  cp foldername2/*.json foldername1/ (* - скопирует все файлы .json в указанную папку)
+13) переместить любые 2 файла, которые вы создали, в любую другую папку. - 
+mv foldername2/{json1.json,json2.json} foldername1/    и  
+mv foldername2/*.txt foldername1/ (* - переместит все файлы .txt в указанную папку)
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку. -  
+cp foldername2/{json1.json,json2.json} foldername1/   и  
+cp foldername2/*.json foldername1/ (* - скопирует все файлы .json в указанную папку)
 15) Найти файл по имени - find -name "txt1.txt"
-16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает. - tail -f txt1.txt | grep s
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает. - tail -f txt1.txt | grep текст
 17) вывести несколько первых строк из текстового файла - head -5 txt1.txt
 18) вывести несколько последних строк из текстового файла - tail -n5 txt1.txt
 19) просмотреть содержимое длинного файла (команда less) изучите как она работает. - less -s txt1.txt
-20) вывести дату и время - 
+20) вывести дату и время - date
 =========
 
 Задание *
 1) Отправить http запрос на сервер.
-http://162.55.220.72:5005/terminal-hw-request
-2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+http://162.55.220.72:5005/terminal-hw-request  -
+
+curl http://162.55.220.72:5005/terminal-hw-request
+
+1.1)"Task_1":"Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)" -
+
+curl "http://162.55.220.72:5005/get_method?name='Aleksey'&age=26"
+                                                                            
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13 :
+nano script1.sh
+
+#!/bin/bash
+
+cd foldername1
+mkdir folder1 folder2 folder3
+cd folder1
+touch txt1.txt txt2.txt txt3.txt json1.json json2.json
+mkdir folder4 folder5 folder6
+ls -la
+cd ..
+mv folder1/{json1.json,json2.json} folder2/
+
+bash script1.sh
+
